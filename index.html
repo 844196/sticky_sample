@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang='ja'>
+  <head>
+    <meta charset='UTF-8'>
+    <meta content='width=device-width, initial-scale=1.0' name='viewport'>
+    <script src="//code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+    <script src='//cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js'></script>
+    <script src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'></script>
+    <script src='//cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment-with-locales.min.js'></script>
+    <link href='//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.css' rel='stylesheet'>
+    <link href='//cdn.honokak.osaka/umi/3.3.5a/css/bootstrap.min.css' rel='stylesheet'>
+    <link href='//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css' rel='stylesheet'>
+    <link href='assets/css/style.css' rel='stylesheet'>
+  </head>
+  <body>
+    <div class='panel panel-default note' id='skeleton'>
+      <div class='panel-heading'>
+        <div class='panel-title'>
+          <i class='fa fa-sticky-note-o fa-fw'></i>
+          <span class='h5'>Skeleton</span>
+          <span class='toolbar'>
+            <a class='note-edit'>
+              <i class='fa fa-pencil fa-fw'></i>
+            </a>
+            <a class='note-close'>
+              <i class='fa fa-times fa-fw'></i>
+            </a>
+          </span>
+        </div>
+      </div>
+      <div class='panel-body'>
+        <textarea class='form-control editor' style='display:none'></textarea>
+        <div class='rendered-markdown' style='display:block'></div>
+      </div>
+    </div>
+    <header>
+      <div class='description'>
+        <i class='fa fa-sticky-note fa-fw fa-4x'></i>
+        <h1>Sticky</h1>
+        <small>
+          You can create a new sticky note, when you right-click or
+          <kbd>Shift</kbd>
+          +
+          <kbd>N</kbd>
+        </small>
+      </div>
+    </header>
+    <main></main>
+    <footer>
+      <div class='toolnav'>
+        <a onClick='tidyUp()'>
+          <i class='fa fa-clone fa-fw fa-lg'></i>
+        </a>
+        <a data-target='#delete-confirm-modal' data-toggle='modal'>
+          <i class='fa fa-trash fa-fw fa-lg'></i>
+        </a>
+      </div>
+      <div class='modal fade' id='delete-confirm-modal'>
+        <div class='modal-dialog modal-sm'>
+          <div class='modal-content'>
+            <div class='modal-body'>
+              Are you sure you want to all delete?
+            </div>
+            <div class='modal-footer'>
+              <button class='btn btn-default' data-dismiss='modal' type='button'>
+                Close
+              </button>
+              <button class='btn btn-danger' data-dismiss='modal' id='clean' onClick='allRemove()' type='button'>
+                Delete
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script src='assets/js/app.js'></script>
+    </footer>
+  </body>
+</html>
